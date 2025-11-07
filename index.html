@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>OSI Model</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<h1>OSI Model - 7 Layers</h1>
+		<p>Click a layer to see what it does!</p>
+
+		<div class="layer-container">
+			<div class="layer Application" onclick="showInfo('Application')">Application Layer</div>
+			<div class="layer Presentation" onclick="showInfo('Presentation')">Presentation Layer</div>
+			<div class="layer Session" onclick="showInfo('Session')">Session Layer</div>
+			<div class="layer Transport" onclick="showInfo('Transport')">Transport Layer</div>
+			<div class="layer Network" onclick="showInfo('Network')">Network Layer</div>
+			<div class="layer DataLink" onclick="showInfo('DataLink')">Data Link Layer</div>
+			<div class="layer Physical" onclick="showInfo('Physical')">Physical Layer</div>
+		</div>
+
+		<div class="description" id="layerDesc">
+			Click on a layer to see its description here!
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
