@@ -1,29 +1,537 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>OSI Model</title>
-		<link rel="stylesheet" href="style.css">
-	</head>
-	<body>
-		<h1>OSI Model - 7 Layers</h1>
-		<p>Click a layer to see what it does!</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OSI Model - Interactive Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Landing Page -->
+  <div id="landingPage" class="landing-page">
+    <div class="landing-content">
+      <h1 class="landing-title">OSI Model</h1>
+      <h2 class="landing-subtitle">Interactive Guide</h2>
+      <div class="landing-info">
+        <p class="student-name">Dylan Chan</p>
+        <p class="class-info">Cybersecurity P8</p>
+      </div>
+      <button id="startBtn" class="start-button">Start Exploring</button>
+    </div>
+  </div>
 
-		<div class="layer-container">
-			<div class="layer Application" onclick="showInfo('Application')">Application Layer</div>
-			<div class="layer Presentation" onclick="showInfo('Presentation')">Presentation Layer</div>
-			<div class="layer Session" onclick="showInfo('Session')">Session Layer</div>
-			<div class="layer Transport" onclick="showInfo('Transport')">Transport Layer</div>
-			<div class="layer Network" onclick="showInfo('Network')">Network Layer</div>
-			<div class="layer DataLink" onclick="showInfo('DataLink')">Data Link Layer</div>
-			<div class="layer Physical" onclick="showInfo('Physical')">Physical Layer</div>
-		</div>
+  <!-- Main Content (hidden initially) -->
+  <div id="mainContent" style="display: none;">
+  <!-- Header Section -->
+  <header class="page-header">
+    <h1>OSI Model Interactive Guide</h1>
+  </header>
 
-		<div class="description" id="layerDesc">
-			Click on a layer to see its description here!
-		</div>
+  <div class="container">
+    <aside class="sidebar">
+      <h2>OSI Layers</h2>
+      <div class="layer" data-layer="7">Layer 7<br><span>Application</span></div>
+      <div class="layer" data-layer="6">Layer 6<br><span>Presentation</span></div>
+      <div class="layer active" data-layer="5">Layer 5<br><span>Session</span></div>
+      <div class="layer" data-layer="4">Layer 4<br><span>Transport</span></div>
+      <div class="layer" data-layer="3">Layer 3<br><span>Network</span></div>
+      <div class="layer" data-layer="2">Layer 2<br><span>Data Link</span></div>
+      <div class="layer" data-layer="1">Layer 1<br><span>Physical</span></div>
+      
+      <div class="navigation-buttons">
+        <button id="upBtn" class="nav-btn">▲ Up</button>
+        <button id="downBtn" class="nav-btn">▼ Down</button>
+      </div>
+    </aside>
 
-		<script src="script.js"></script>
-	</body>
+    <main class="info-panel" id="contentArea">
+      <!-- Layer 5 Content (Default) -->
+      <div class="layer-content" id="layer5" style="display: block;">
+        <div class="definition">
+          <h2>Layer 5: Session Layer</h2>
+          <p>The Session Layer is responsible for establishing, managing, and terminating communication sessions between applications on different devices. It works together with Layer 4 of the OSI model by ensuring a secure and persistent connection between the applications so that data can be properly transported.</p>
+        </div>
+
+        <!-- Main Functions Section -->
+        <div class="functions-section">
+          <h3>🔧 Main Functions</h3>
+          <div class="function-grid">
+            <div class="function-card" data-function="setup">
+              <div class="function-header">
+                <h4>Session Setup</h4>
+                <span class="expand-indicator">+</span>
+              </div>
+              <div class="function-body">
+                <p>The Session Layer establishes a communication session between two devices, coordinating the initial connection and preparing for data exchange.</p>
+              </div>
+            </div>
+
+            <div class="function-card" data-function="maintenance">
+              <div class="function-header">
+                <h4>Session Maintenance</h4>
+                <span class="expand-indicator">+</span>
+              </div>
+              <div class="function-body">
+                <p>Manages the session through dialogue control, coordinating data exchange to ensure data does not collide and remains orderly during transmission.</p>
+              </div>
+            </div>
+
+            <div class="function-card" data-function="sync">
+              <div class="function-header">
+                <h4>Synchronization</h4>
+                <span class="expand-indicator">+</span>
+              </div>
+              <div class="function-body">
+                <p>Creates checkpoints in data streams that serve as recovery points. If the session is interrupted, data transfer can resume from the last checkpoint instead of starting over, preventing data loss.</p>
+              </div>
+            </div>
+
+            <div class="function-card" data-function="termination">
+              <div class="function-header">
+                <h4>Session Termination</h4>
+                <span class="expand-indicator">+</span>
+              </div>
+              <div class="function-body">
+                <p>Once all data has been exchanged, the Session Layer gracefully closes the session, ending the conversation and releasing resources like memory and connection states.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Protocols Section -->
+        <div class="protocols-section">
+          <h3>📡 Examples of Protocols</h3>
+          <div class="protocol-grid">
+            <div class="protocol-card">
+              <div class="protocol-header">
+                <h4>SIP</h4>
+                <span class="protocol-badge">Session Initiation Protocol</span>
+              </div>
+              <div class="protocol-body">
+                <p>Initiates, manages, and terminates sessions over the internet for voice and video calls.</p>
+              </div>
+            </div>
+
+            <div class="protocol-card">
+              <div class="protocol-header">
+                <h4>H.245</h4>
+                <span class="protocol-badge">Multimedia Protocol</span>
+              </div>
+              <div class="protocol-body">
+                <p>Performs the same session management functions but specifically for multimedia communication sessions.</p>
+              </div>
+            </div>
+
+            <div class="protocol-card">
+              <div class="protocol-header">
+                <h4>ASP</h4>
+                <span class="protocol-badge">AppleTalk Session Protocol</span>
+              </div>
+              <div class="protocol-body">
+                <p>Used for managing sessions on Apple devices within AppleTalk networks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- More Information Section -->
+        <div class="additional-info-section">
+          <h3>💡 More Information</h3>
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="info-card-header">
+                <h4>Real-World Examples</h4>
+                <span class="expand-indicator">+</span>
+              </div>
+              <div class="info-card-body">
+                <p>Video calls and live conference streaming rely on the Session Layer to keep connections stable even with temporary interruptions. The checkpoint system ensures that if your internet briefly disconnects during a video call, the session can resume without having to reconnect from scratch.</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-card-header">
+                <h4>Layer Relationships</h4>
+                <span class="expand-indicator">+</span>
+              </div>
+              <div class="info-card-body">
+                <p><strong>With Layer 4 (Transport):</strong> Layer 5 builds on the Transport Layer by using Layer 4 as a foundation to hold the session. Layer 4 provides services and resources, and Layer 5 uses these tools to establish and manage the session.</p>
+                <p><strong>With Layer 6 (Presentation):</strong> Layer 5 ensures that data passed through the session is in an appropriate format to be either passed up to Layer 7 to be presented or down to Layer 4 to be transported.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Illustration -->
+        <div class="visual-section">
+          <h3>🎥 Visual Example</h3>
+          <div class="visual-illustration">
+            <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left Device (Computer with video call) -->
+            <g id="left-device">
+              <!-- Monitor -->
+              <rect x="30" y="60" width="100" height="70" rx="5" fill="rgba(var(--current-layer-rgb), 0.2)" stroke="currentColor" stroke-width="3"/>
+              <!-- Screen with person icon -->
+              <rect x="35" y="65" width="90" height="55" fill="rgba(0, 0, 0, 0.3)"/>
+              <!-- Person 1 (head) -->
+              <circle cx="80" cy="85" r="8" fill="currentColor" opacity="0.7"/>
+              <!-- Person 1 (body) -->
+              <path d="M 65 95 Q 80 100 95 95" stroke="currentColor" stroke-width="3" fill="none" opacity="0.7"/>
+              <!-- Video call indicator -->
+              <circle cx="45" cy="72" r="3" fill="#ff4444"/>
+              <text x="80" y="115" text-anchor="middle" fill="currentColor" font-size="8">VIDEO</text>
+              <!-- Stand -->
+              <rect x="70" y="130" width="20" height="15" fill="currentColor"/>
+              <rect x="50" y="145" width="60" height="5" rx="2" fill="currentColor"/>
+            </g>
+
+            <!-- Session Connection (animated waves) -->
+            <g id="connection">
+              <!-- Connection line -->
+              <path d="M 140 95 Q 300 95 460 95" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="5,5">
+                <animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/>
+              </path>
+              
+              <!-- Data packets -->
+              <circle cx="200" cy="95" r="6" fill="currentColor">
+                <animate attributeName="cx" from="140" to="460" dur="3s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="350" cy="95" r="6" fill="currentColor">
+                <animate attributeName="cx" from="140" to="460" dur="3s" begin="1.5s" repeatCount="indefinite"/>
+              </circle>
+              
+              <!-- Bidirectional arrows -->
+              <polygon points="200,85 200,105 210,95" fill="currentColor" opacity="0.6"/>
+              <polygon points="400,85 400,105 390,95" fill="currentColor" opacity="0.6"/>
+              
+              <!-- Session label -->
+              <rect x="260" y="50" width="80" height="30" rx="15" fill="rgba(var(--current-layer-rgb), 0.3)" stroke="currentColor" stroke-width="2"/>
+              <text x="300" y="70" text-anchor="middle" fill="currentColor" font-size="14" font-weight="bold">SESSION</text>
+            </g>
+
+            <!-- Right Device (Computer with video call) -->
+            <g id="right-device">
+              <!-- Monitor -->
+              <rect x="470" y="60" width="100" height="70" rx="5" fill="rgba(var(--current-layer-rgb), 0.2)" stroke="currentColor" stroke-width="3"/>
+              <!-- Screen with person icon -->
+              <rect x="475" y="65" width="90" height="55" fill="rgba(0, 0, 0, 0.3)"/>
+              <!-- Person 2 (head) -->
+              <circle cx="520" cy="85" r="8" fill="currentColor" opacity="0.7"/>
+              <!-- Person 2 (body) -->
+              <path d="M 505 95 Q 520 100 535 95" stroke="currentColor" stroke-width="3" fill="none" opacity="0.7"/>
+              <!-- Video call indicator -->
+              <circle cx="485" cy="72" r="3" fill="#ff4444"/>
+              <text x="520" y="115" text-anchor="middle" fill="currentColor" font-size="8">VIDEO</text>
+              <!-- Stand -->
+              <rect x="510" y="130" width="20" height="15" fill="currentColor"/>
+              <rect x="490" y="145" width="60" height="5" rx="2" fill="currentColor"/>
+            </g>
+
+            <!-- Checkpoints indicator -->
+            <g id="checkpoints">
+              <circle cx="220" cy="115" r="4" fill="currentColor" opacity="0.5"/>
+              <circle cx="300" cy="115" r="4" fill="currentColor" opacity="0.5"/>
+              <circle cx="380" cy="115" r="4" fill="currentColor" opacity="0.5"/>
+              <text x="300" y="140" text-anchor="middle" fill="#999" font-size="11">Synchronization Checkpoints</text>
+            </g>
+          </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer 7 Placeholder -->
+      <div class="layer-content" id="layer7" style="display: none;">
+        <div class="definition">
+          <h2>Layer 7: Application Layer</h2>
+          <p>The Application Layer provides network services directly to end-user applications. This is the layer where users interact with network services.</p>
+          <p class="placeholder-note">📝 Content coming soon! This layer handles protocols like HTTP, FTP, SMTP, and DNS.</p>
+        </div>
+      </div>
+
+      <!-- Layer 6 Placeholder -->
+      <div class="layer-content" id="layer6" style="display: none;">
+        <div class="definition">
+          <h2>Layer 6: Presentation Layer</h2>
+          <p>The Presentation Layer translates data between the application layer and the network. It handles data encryption, compression, and formatting.</p>
+          <p class="placeholder-note">📝 Content coming soon! This layer ensures data is in a usable format.</p>
+        </div>
+      </div>
+
+      <!-- Layer 4 Placeholder -->
+      <div class="layer-content" id="layer4" style="display: none;">
+        <div class="definition">
+          <h2>Layer 4: Transport Layer</h2>
+          <p>The Transport Layer ensures reliable end-to-end data communication by managing data segmentation, reassembly, error detection, and flow control. It serves as a bridge between the upper layers (Layers 5-7) and the lower layers (Layers 1-3), connecting applications with the underlying network infrastructure.</p>
+        </div>
+
+        <!-- Main Functions Section -->
+        <div class="functions-section">
+          <h3>🔧 Main Functions</h3>
+          <div class="function-grid">
+            <div class="function-card" data-function="segmentation">
+              <div class="function-header">
+                <h4>Data Segmentation</h4>
+                <span class="expand-indicator">+</span>
+              </div>
+              <div class="function-body">
+                <p>Breaks data into smaller chunks called segments for transmission and adds headers containing source/destination port numbers, sequence numbers, checksums, window size, and acknowledgement numbers to ensure proper delivery and reassembly.</p>
+              </div>
+            </div>
+
+            <div class="function-card" data-function="reassembly">
+              <div class="function-header">
+                <h4>Data Reassembly</h4>
+                <span class="expand-indicator">+</span>
+              </div>
+              <div class="function-body">
+                <p>Reassembles segments into a complete data message at the destination using sequence numbers from the header, ensuring data arrives in the correct order.</p>
+              </div>
+            </div>
+
+            <div class="function-card" data-function="error">
+              <div class="function-header">
+                <h4>Error Checking</h4>
+                <span class="expand-indicator">+</span>
+              </div>
+              <div class="function-body">
+                <p>Uses checksums in headers that are calculated by the sender and recalculated by the receiver. If checksums don't match, the data is considered corrupt and can be retransmitted.</p>
+              </div>
+            </div>
+
+            <div class="function-card" data-function="flow">
+              <div class="function-header">
+                <h4>Flow Control</h4>
+                <span class="expand-indicator">+</span>
+              </div>
+              <div class="function-body">
+                <p>Prevents a fast sender from overwhelming a slow receiver by adjusting data transmission speed. The receiver indicates how much data it can handle, and the sender adjusts dynamically. Note: Only implemented in TCP, not UDP.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Protocols Section -->
+        <div class="protocols-section">
+          <h3>📡 Examples of Protocols</h3>
+          <div class="protocol-grid">
+            <div class="protocol-card">
+              <div class="protocol-header">
+                <h4>TCP</h4>
+                <span class="protocol-badge">Transmission Control Protocol</span>
+              </div>
+              <div class="protocol-body">
+                <p>Guarantees reliable, ordered delivery through connection establishment using a three-way handshake (SYN → SYN-ACK → ACK). Supports flow control and ensures all data arrives correctly.</p>
+              </div>
+            </div>
+
+            <div class="protocol-card">
+              <div class="protocol-header">
+                <h4>UDP</h4>
+                <span class="protocol-badge">User Datagram Protocol</span>
+              </div>
+              <div class="protocol-body">
+                <p>Fast and simple protocol that sends data without establishing a connection first. Does not guarantee delivery or order, and cannot perform flow control. Prioritizes speed over reliability.</p>
+              </div>
+            </div>
+
+            <div class="protocol-card">
+              <div class="protocol-header">
+                <h4>SCTP</h4>
+                <span class="protocol-badge">Stream Control Transmission Protocol</span>
+              </div>
+              <div class="protocol-body">
+                <p>A hybrid protocol combining features of TCP and UDP. Less commonly used due to limited implementation and system support.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- More Information Section -->
+        <div class="additional-info-section">
+          <h3>💡 More Information</h3>
+          <div class="info-grid">
+            <div class="info-card">
+              <div class="info-card-header">
+                <h4>Real-World Examples</h4>
+                <span class="expand-indicator">+</span>
+              </div>
+              <div class="info-card-body">
+                <p>Sending an email uses TCP because complete data integrity is critical - every character must arrive correctly and in order. Online gaming uses UDP because speed is more important than perfect accuracy; even if a few packets are lost, the overall experience remains smooth and responsive.</p>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="info-card-header">
+                <h4>Layer Relationships</h4>
+                <span class="expand-indicator">+</span>
+              </div>
+              <div class="info-card-body">
+                <p><strong>With Layer 5 (Session):</strong> Layer 4 provides the transport service (TCP or UDP) that Layer 5 relies on to maintain consistent connections between applications. Layer 5 then establishes, manages, terminates, and synchronizes the connection defined by Layer 4.</p>
+                <p><strong>With Layer 3 (Network):</strong> Layer 4 receives routed packets from Layer 3 and ensures they're delivered to the correct application by segmenting or reassembling them using port numbers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visual Examples Section -->
+        <div class="visual-section">
+          <h3>🎥 Visual Examples</h3>
+          <div class="visual-comparison">
+            <!-- TCP Visual -->
+            <div class="visual-illustration">
+              <h4 class="visual-label">TCP - Reliable Connection</h4>
+              <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+                <!-- Sender -->
+                <g id="tcp-sender">
+                  <rect x="20" y="80" width="120" height="80" rx="8" fill="rgba(var(--current-layer-rgb), 0.2)" stroke="currentColor" stroke-width="3"/>
+                  <text x="80" y="110" text-anchor="middle" fill="currentColor" font-size="14" font-weight="bold">SENDER</text>
+                  <text x="80" y="130" text-anchor="middle" fill="#ccc" font-size="11">Segmentation</text>
+                  <text x="80" y="145" text-anchor="middle" fill="#ccc" font-size="11">+ Headers</text>
+                </g>
+
+                <!-- Data segments flowing -->
+                <g id="tcp-segments">
+                  <!-- Segment 1 -->
+                  <rect x="170" y="50" width="50" height="30" rx="4" fill="rgba(var(--current-layer-rgb), 0.3)" stroke="currentColor" stroke-width="2">
+                    <animate attributeName="x" from="170" to="380" dur="4s" repeatCount="indefinite"/>
+                  </rect>
+                  <text x="195" y="70" text-anchor="middle" fill="currentColor" font-size="10" font-weight="bold">
+                    SEG 1
+                    <animate attributeName="x" from="195" to="405" dur="4s" repeatCount="indefinite"/>
+                  </text>
+
+                  <!-- Segment 2 -->
+                  <rect x="170" y="95" width="50" height="30" rx="4" fill="rgba(var(--current-layer-rgb), 0.3)" stroke="currentColor" stroke-width="2">
+                    <animate attributeName="x" from="170" to="380" dur="4s" begin="1s" repeatCount="indefinite"/>
+                  </rect>
+                  <text x="195" y="115" text-anchor="middle" fill="currentColor" font-size="10" font-weight="bold">
+                    SEG 2
+                    <animate attributeName="x" from="195" to="405" dur="4s" begin="1s" repeatCount="indefinite"/>
+                  </text>
+
+                  <!-- Segment 3 -->
+                  <rect x="170" y="140" width="50" height="30" rx="4" fill="rgba(var(--current-layer-rgb), 0.3)" stroke="currentColor" stroke-width="2">
+                    <animate attributeName="x" from="170" to="380" dur="4s" begin="2s" repeatCount="indefinite"/>
+                  </rect>
+                  <text x="195" y="160" text-anchor="middle" fill="currentColor" font-size="10" font-weight="bold">
+                    SEG 3
+                    <animate attributeName="x" from="195" to="405" dur="4s" begin="2s" repeatCount="indefinite"/>
+                  </text>
+
+                  <!-- TCP label -->
+                  <text x="280" y="200" text-anchor="middle" fill="currentColor" font-size="12" font-weight="bold">Ordered & Reliable</text>
+                </g>
+
+                <!-- Receiver -->
+                <g id="tcp-receiver">
+                  <rect x="460" y="80" width="120" height="80" rx="8" fill="rgba(var(--current-layer-rgb), 0.2)" stroke="currentColor" stroke-width="3"/>
+                  <text x="520" y="110" text-anchor="middle" fill="currentColor" font-size="14" font-weight="bold">RECEIVER</text>
+                  <text x="520" y="130" text-anchor="middle" fill="#ccc" font-size="11">Reassembly</text>
+                  <text x="520" y="145" text-anchor="middle" fill="#ccc" font-size="11">Error Check</text>
+                </g>
+
+                <!-- Flow control arrow -->
+                <path d="M 460 95 L 150 95" stroke="currentColor" stroke-width="2" stroke-dasharray="3,3" fill="none" opacity="0.5"/>
+                <polygon points="150,95 155,90 155,100" fill="currentColor" opacity="0.5"/>
+                <text x="305" y="88" text-anchor="middle" fill="#999" font-size="10">Flow Control</text>
+              </svg>
+            </div>
+
+            <!-- UDP Visual -->
+            <div class="visual-illustration">
+              <h4 class="visual-label">UDP - Fast Transmission</h4>
+              <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+                <!-- Sender -->
+                <g id="udp-sender">
+                  <rect x="20" y="80" width="120" height="80" rx="8" fill="rgba(var(--current-layer-rgb), 0.2)" stroke="currentColor" stroke-width="3"/>
+                  <text x="80" y="110" text-anchor="middle" fill="currentColor" font-size="14" font-weight="bold">SENDER</text>
+                  <text x="80" y="130" text-anchor="middle" fill="#ccc" font-size="11">Quick Send</text>
+                  <text x="80" y="145" text-anchor="middle" fill="#ccc" font-size="11">No Connection</text>
+                </g>
+
+                <!-- Data packets flying (faster, more chaotic) -->
+                <g id="udp-packets">
+                  <!-- Packet 1 -->
+                  <rect x="170" y="60" width="45" height="25" rx="4" fill="rgba(var(--current-layer-rgb), 0.3)" stroke="currentColor" stroke-width="2">
+                    <animate attributeName="x" from="170" to="400" dur="2s" repeatCount="indefinite"/>
+                  </rect>
+                  <text x="192" y="77" text-anchor="middle" fill="currentColor" font-size="9" font-weight="bold">
+                    PKT 3
+                    <animate attributeName="x" from="192" to="422" dur="2s" repeatCount="indefinite"/>
+                  </text>
+
+                  <!-- Packet 2 -->
+                  <rect x="170" y="100" width="45" height="25" rx="4" fill="rgba(var(--current-layer-rgb), 0.3)" stroke="currentColor" stroke-width="2">
+                    <animate attributeName="x" from="170" to="400" dur="1.8s" begin="0.3s" repeatCount="indefinite"/>
+                  </rect>
+                  <text x="192" y="117" text-anchor="middle" fill="currentColor" font-size="9" font-weight="bold">
+                    PKT 1
+                    <animate attributeName="x" from="192" to="422" dur="1.8s" begin="0.3s" repeatCount="indefinite"/>
+                  </text>
+
+                  <!-- Packet 3 (lost) -->
+                  <rect x="170" y="140" width="45" height="25" rx="4" fill="rgba(255, 100, 100, 0.3)" stroke="#ff6666" stroke-width="2" opacity="0.5">
+                    <animate attributeName="x" from="170" to="300" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" from="0.5" to="0" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                  </rect>
+                  <text x="192" y="157" text-anchor="middle" fill="#ff6666" font-size="9" font-weight="bold" opacity="0.5">
+                    PKT 2
+                    <animate attributeName="x" from="192" to="322" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" from="0.5" to="0" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                  </text>
+
+                  <!-- UDP label -->
+                  <text x="300" y="200" text-anchor="middle" fill="currentColor" font-size="12" font-weight="bold">Fast & Unordered</text>
+                </g>
+
+                <!-- Receiver -->
+                <g id="udp-receiver">
+                  <rect x="460" y="80" width="120" height="80" rx="8" fill="rgba(var(--current-layer-rgb), 0.2)" stroke="currentColor" stroke-width="3"/>
+                  <text x="520" y="110" text-anchor="middle" fill="currentColor" font-size="14" font-weight="bold">RECEIVER</text>
+                  <text x="520" y="130" text-anchor="middle" fill="#ccc" font-size="11">Accept Any</text>
+                  <text x="520" y="145" text-anchor="middle" fill="#ccc" font-size="11">No Checking</text>
+                </g>
+
+                <!-- No flow control indicator -->
+                <text x="300" y="185" text-anchor="middle" fill="#999" font-size="10" font-style="italic">No Flow Control</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layer 3 Placeholder -->
+      <div class="layer-content" id="layer3" style="display: none;">
+        <div class="definition">
+          <h2>Layer 3: Network Layer</h2>
+          <p>The Network Layer handles routing and forwarding of data packets between networks. It determines the best path for data to travel.</p>
+          <p class="placeholder-note">📝 Content coming soon! This layer uses IP addressing and routing protocols.</p>
+        </div>
+      </div>
+
+      <!-- Layer 2 Placeholder -->
+      <div class="layer-content" id="layer2" style="display: none;">
+        <div class="definition">
+          <h2>Layer 2: Data Link Layer</h2>
+          <p>The Data Link Layer provides node-to-node data transfer and handles error correction from the physical layer. It defines how data is formatted for transmission.</p>
+          <p class="placeholder-note">📝 Content coming soon! This layer includes MAC addresses and switches.</p>
+        </div>
+      </div>
+
+      <!-- Layer 1 Placeholder -->
+      <div class="layer-content" id="layer1" style="display: none;">
+        <div class="definition">
+          <h2>Layer 1: Physical Layer</h2>
+          <p>The Physical Layer transmits raw bit streams over a physical medium. It deals with the hardware and physical connections between devices.</p>
+          <p class="placeholder-note">📝 Content coming soon! This layer includes cables, switches, and electrical signals.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
