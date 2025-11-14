@@ -1,16 +1,3 @@
-// Landing page functionality
-const landingPage = document.getElementById('landingPage');
-const mainContent = document.getElementById('mainContent');
-const startBtn = document.getElementById('startBtn');
-
-startBtn.addEventListener('click', () => {
-  landingPage.classList.add('fade-out');
-  setTimeout(() => {
-    landingPage.style.display = 'none';
-    mainContent.style.display = 'flex';
-  }, 500);
-});
-
 // Current layer tracker
 let currentLayer = 5;
 
